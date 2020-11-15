@@ -1,0 +1,18 @@
+version: "3"
+services:
+  proxy:
+    build: ./
+    networks:
+      - frontend
+      - backend
+    ports:
+      - 80:80
+    container_name: reverse
+
+networks:
+  frontend:
+    external:
+      name: frontend_default
+  backend:
+    external:
+      name: backend_default
